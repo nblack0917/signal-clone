@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Button, Input, Image } from "@rneui/themed";
 import { auth } from "../firebase";
@@ -8,6 +8,12 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitleAlign: "center",
+    });
+  }, []);
 
   onAuthStateChanged(auth, (user) => {
     if (user) {

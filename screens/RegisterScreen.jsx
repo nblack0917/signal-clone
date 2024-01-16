@@ -19,6 +19,7 @@ const RegisterScreen = ({ navigation }) => {
     navigation.setOptions({
       headerBackTitle: "Back to Login",
       headerBackTitleVisible: true,
+      headerTitleAlign: "center",
     });
   }, [navigation]);
 
